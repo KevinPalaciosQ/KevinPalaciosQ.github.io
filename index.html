@@ -1,431 +1,1131 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>Kevin Portfolio</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kevin Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Agregar el ícono .ico -->
+    <link rel="icon" href="imgs/letra-k.ico"  type="image/x-icon">  
+    <!-- Agregar Font Awesome para los íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'neon': '#00ff41',
+                        'neon-dark': '#00cc33',
+                        'dark': '#0a0a0a',
+                        'darker': '#050505',
+                        'terminal': '#101010',
+                    },
+                    fontFamily: {
+                        'mono': ['Courier New', 'monospace'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes glitch {
+            0% { transform: translate(0) }
+            20% { transform: translate(-2px, 2px) }
+            40% { transform: translate(-2px, -2px) }
+            60% { transform: translate(2px, 2px) }
+            80% { transform: translate(2px, -2px) }
+            100% { transform: translate(0) }
+        }
+        .glitch {
+            animation: glitch 1s infinite;
+            animation-timing-function: steps(2, end);
+        }
+        .matrix-bg {
+            position: relative;
+            overflow: hidden;
+        }
+        .matrix-bg::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), 
+                        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 800 800'%3E%3Cg fill='none' stroke='%23024' stroke-opacity='0.15'%3E%3Cpath d='M769 229L1037 260.9M927 880L731 737 520 660 309 538 40 599 295 764 126.5 879.5 40 599-197 493 102 382-31 229 126.5 79.5-69-63'/%3E%3Cpath d='M-31 229L237 261 390 382 603 493 308.5 537.5 101.5 381.5M370 905L295 764'/%3E%3Cpath d='M520 660L578 842 731 737 840 599 603 493 520 660 295 764 309 538 390 382 539 269 769 229 577.5 41.5 370 105 295 -36 126.5 79.5 237 261 102 382 40 599 -69 737 127 880'/%3E%3Cpath d='M520-140L578.5 42.5 731-63M603 493L539 269 237 261 370 105M902 382L539 269M390 382L102 382'/%3E%3Cpath d='M-222 42L126.5 79.5 370 105 539 269 577.5 41.5 927 80 769 229 902 382 603 493 731 737M295-36L577.5 41.5M578 842L295 764M40-201L127 80M102 382L-261 269'/%3E%3C/g%3E%3Cg fill='%23007500'%3E%3Ccircle cx='769' cy='229' r='5'/%3E%3Ccircle cx='539' cy='269' r='5'/%3E%3Ccircle cx='603' cy='493' r='5'/%3E%3Ccircle cx='731' cy='737' r='5'/%3E%3Ccircle cx='520' cy='660' r='5'/%3E%3Ccircle cx='309' cy='538' r='5'/%3E%3Ccircle cx='295' cy='764' r='5'/%3E%3Ccircle cx='40' cy='599' r='5'/%3E%3Ccircle cx='102' cy='382' r='5'/%3E%3Ccircle cx='127' cy='80' r='5'/%3E%3Ccircle cx='370' cy='105' r='5'/%3E%3Ccircle cx='578' cy='42' r='5'/%3E%3Ccircle cx='237' cy='261' r='5'/%3E%3Ccircle cx='390' cy='382' r='5'/%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.15;
+            z-index: -1;
+        }
+        .terminal {
+            border: 1px solid #00ff41;
+            background-color: rgba(0, 10, 2, 0.7);
+            box-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+            border-radius: 4px;
+            padding: 20px;
+            font-family: 'Courier New', monospace;
+        }
+        .terminal::before {
+            content: "$ ";
+            color: #00ff41;
+        }
+        .cursor::after {
+            content: "|";
+            color: #00ff41;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        .scanline {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: rgba(0, 255, 65, 0.1);
+            opacity: 0.75;
+            animation: scanline 6s linear infinite;
+        }
+        @keyframes scanline {
+            0% { top: 0%; }
+            100% { top: 100%; }
+        }
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+        }
+        .modal-content {
+            position: relative;
+            background-color: #101010;
+            margin: 10% auto;
+            padding: 0;
+            border: 1px solid #00ff41;
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.5);
+            width: 80%;
+            max-width: 800px;
+            animation: glitchIn 0.3s;
+        }
+        @keyframes glitchIn {
+            0% { transform: scale(0.9); opacity: 0; }
+            20% { transform: scale(1.05); opacity: 0.5; }
+            40% { transform: scale(0.95); opacity: 0.7; }
+            60% { transform: scale(1.03); opacity: 0.8; }
+            80% { transform: scale(0.97); opacity: 0.9; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .close-modal {
+            color: #00ff41;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .close-modal:hover {
+            color: #fff;
+            text-shadow: 0 0 10px #00ff41;
+        }
+    </style>
 </head>
-
-<body>
-
-  <!-- ======= Mobile nav toggle button ======= -->
-  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
-
-  <!-- ======= Header ======= -->
-  <header id="header">
-    <div class="d-flex flex-column">
-
-      <div class="profile">
-        <img src="assets/img/profile.jpeg" alt="" class="img-fluid rounded-circle">
-        <h1 class="text-light"><a href="index.html">Kevin Palacios</a></h1>
-        <div class="social-links mt-3 text-center">
-          <a href="https://www.linkedin.com/in/kevin-palacios1997/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-          <a href="https://github.com/KevinPalaciosQ" class="github"><i class="bx bxl-github"></i></a>
+<body class="bg-dark font-mono text-gray-300">
+    <div class="scanline"></div>
+    
+    <!-- Navigation -->
+    <nav class="bg-darker border-b border-neon/30 fixed w-full z-10">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold text-neon glitch">&lt;/Kevin_Palacios&gt;</a>
+            <div class="hidden md:flex space-x-6">
+                <a href="#home" class="text-gray-400 hover:text-neon transition duration-300">&lt;Home/&gt;</a>
+                <a href="#about" class="text-gray-400 hover:text-neon transition duration-300">&lt;About/&gt;</a>
+                <a href="#projects" class="text-gray-400 hover:text-neon transition duration-300">&lt;Projects/&gt;</a>
+                <a href="#contact" class="text-gray-400 hover:text-neon transition duration-300">&lt;Contact/&gt;</a>
+            </div>
+            <div class="md:hidden">
+                <button id="menu-toggle" class="text-gray-400 focus:outline-none">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
         </div>
-      </div>
-
-      <nav id="navbar" class="nav-menu navbar">
-        <ul>
-          <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
-          <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
-          <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
-          <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Portfolio</span></a></li>
-          <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
-        </ul>
-      </nav><!-- .nav-menu -->
-    </div>
-  </header><!-- End Header -->
-
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
-    <div class="hero-container" data-aos="fade-in">
-      <h1>Kevin Palacios</h1>
-      <p>I'm <span class="typed" data-typed-items="Designer, Developer, Student"></span></p>
-    </div>
-  </section><!-- End Hero -->
-
-  <main id="main">
-
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>About</h2>
-          <p>Apart from being a student, I like to research about new technologies to keep myself up to date, to become a FullStack programmer.</p>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-darker border-t border-neon/30">
+            <div class="px-4 py-2 space-y-2">
+                <a href="#home" class="block text-gray-400 hover:text-neon transition duration-300">&lt;Home/&gt;</a>
+                <a href="#about" class="block text-gray-400 hover:text-neon transition duration-300">&lt;About/&gt;</a>
+                <a href="#projects" class="block text-gray-400 hover:text-neon transition duration-300">&lt;Projects/&gt;</a>
+                <a href="#contact" class="block text-gray-400 hover:text-neon transition duration-300">&lt;Contact/&gt;</a>
+            </div>
         </div>
+    </nav>
 
-        <div class="row">
-          <div class="col-lg-4" data-aos="fade-right">
-            <img src="assets/img/profile.jpeg" class="img-fluid" alt="">
-          </div>
-          <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-            <h3>Science and Systems Engineering Student &amp; Web Developer.</h3>
-            <p class="fst-italic">
-              I started to study engineering because of my curiosity about programming.
-            </p>
-            <div class="row">
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>20 Nov 1997</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+502 3062-3038</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>Villa Nueva, Guatemala</span></li>
-                </ul>
-              </div>
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>25</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Proficient Counter</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>palacioskevin17@gmail.com</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li>
-                </ul>
-              </div>
-            </div>
-            <p>
-            </p>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End About Section -->
-
-    <!-- ======= Facts Section ======= -->
-    <section id="facts" class="facts">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Facts</h2>
-          <p>Throughout my journey through engineering school, these are my accomplishments:</p>
-        </div>
-
-        <div class="row no-gutters">
-
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="100">
-            <div class="count-box">
-              <i class="bi bi-journal-richtext"></i>
-              <span data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Projects</strong> made</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="200">
-            <div class="count-box">
-              <i class="bi bi-clock"></i>
-              <span data-purecounter-start="0" data-purecounter-end="100" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Hours Invested</strong> Most of the time researching</p>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Facts Section -->
-
-    <!-- ======= Skills Section ======= -->
-    <section id="skills" class="skills section-bg">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Skills</h2>
-          <p>These are the programming skills I have acquired throughout my career.</p>
-        </div>
-
-        <div class="row skills-content">
-
-          <div class="col-lg-6" data-aos="fade-up">
-
-            <div class="progress">
-              <span class="skill">HTML <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">Java <i class="val">60%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">JavaScript <i class="val">30%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-
-            <div class="progress">
-              <span class="skill">Python <i class="val">65%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">PSEINT <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">Autocad <i class="val">55%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Skills Section -->
-
-    <!-- ======= Resume Section ======= -->
-    <section id="resume" class="resume">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Resume</h2>
-          <p>I have completed the following studies:</p>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-6" data-aos="fade-up">
-            <h3 class="resume-title">Sumary</h3>
-            <div class="resume-item pb-0">
-              <h4>Kevin Palacios</h4>
-              <p><em></em></p>
-              <ul>
-                <li>Guatemala,City</li>
-                <li>(502) 3062-3038</li>
-                <li>palacioskevin17@gmail.com</li>
-              </ul>
-            </div>
-            <h3 class="resume-title">Education</h3>
-            <div class="resume-item">
-              <h4>Basics</h4>
-              <h5>2011 - 20163</h5>
-            </div>
-            <div class="resume-item">
-              <h4>Primary</h4>
-              <h5>2005 - 2010</h5>
-              <p></p>
-            </div>
-          </div>
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <h3 class="resume-title">Professional Experience</h3>
-            <div class="resume-item">
-              <h4>Science and Systems Engineering</h4>
-              <h5>2019 - Present</h5>
-              <p><em>University of San Carlos de Guatemala</em></p>
-              <ul>
-                <li>Develop syntactic and lexical analyzers. </li>
-                <li>Create my first API in Flask.</li>
-                <li>I have developed programs in Python and Java.</li>
-                <li>Coecys 2022 volunteer.</li>
-              </ul>
-            </div>
-            <div class="resume-item">
-              <h4>Proficient Counter</h4>
-              <h5>2014 - 2016</h5>
-              <p><em>Colegio CBC El Carmen</em></p>
-              <ul>
-                <li>Conducting a Seminar.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End Resume Section -->
-
-    <!-- ======= Portfolio Section ======= -->
-    <section id="portfolio" class="portfolio section-bg">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Portfolio</h2>
-          <p>These are the programs I have developed:</p>
-        </div>
-
-        <div class="row" data-aos="fade-up">
-          <div class="col-lg-12 d-flex justify-content-center">
-            <ul id="portfolio-flters">
-              <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-app">App</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
-                <a href="https://github.com/KevinPalaciosQ/-LFP-P2_201902278" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 2"><i class="bx bx-plus"></i></a>
-                <a href="https://github.com/KevinPalaciosQ/-LFP-P1_201902278" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 3"><i class="bx bx-plus"></i></a>
-                <a href="https://github.com/KevinPalaciosQ/IPC1_Proyecto2_201902278" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-
-        </div>
-
-      </div>
-    </section><!-- End Portfolio Section -->
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Contact</h2>
-          <p>If you wish to contact me you can use the following options:</p>
-        </div>
-
-        <div class="row" data-aos="fade-in">
-
-          <div class="col-lg-5 d-flex align-items-stretch">
-            <div class="info">
-              <div class="address">
-                <i class="bi bi-geo-alt"></i>
-                <h4>Location:</h4>
-                <p>Guatemala City</p>
-              </div>
-
-              <div class="email">
-                <i class="bi bi-envelope"></i>
-                <h4>Email:</h4>
-                <p>palacioskevin17@gmail.com</p>
-              </div>
-
-              <div class="phone">
-                <i class="bi bi-phone"></i>
-                <h4>Call:</h4>
-                <p>+502 3062-3038</p>
-              </div>
-
-
-            </div>
-
-          </div>
-
-          <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-              <div class="row">
-                <div class="form-group col-md-6">
-                  <label for="name">Your Name</label>
-                  <input type="text" name="name" class="form-control" id="name" required>
+    <!-- Home Section -->
+    <section id="home" class="pt-24 pb-12 md:pt-32 md:pb-24 matrix-bg">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 flex justify-center mb-8 md:mb-0">
+                <div class="relative">
+                    <img src="./imgs/profile.jpeg" alt="Profile Photo" class="rounded-lg w-64 h-64 object-cover border-2 border-neon/50">
+                    <div class="absolute inset-0 bg-gradient-to-t from-neon/20 to-transparent opacity-50 rounded-lg"></div>
+                    <div class="absolute inset-0 border-2 border-neon/30 rounded-lg"></div>
                 </div>
-                <div class="form-group col-md-6">
-                  <label for="name">Your Email</label>
-                  <input type="email" class="form-control" name="email" id="email" required>
+            </div>
+            <div class="md:w-1/2 text-center md:text-left">
+                <div class="terminal inline-block mb-4 px-3 py-1">
+                    <span class="text-neon">kev@portfolio:~#</span> <span class="text-gray-400">whoami</span>
                 </div>
-              </div>
-              <div class="form-group">
-                <label for="name">Subject</label>
-                <input type="text" class="form-control" name="subject" id="subject" required>
-              </div>
-              <div class="form-group">
-                <label for="name">Message</label>
-                <textarea class="form-control" name="message" rows="10" required></textarea>
-              </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
-            </form>
-          </div>
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Hello, I'm <span class="text-neon glitch">Kevin Palacios</span></h1>
+                <p class="text-xl text-gray-400 mb-6">9th Semester Computer Engineering Student <span class="text-white font-semibold">USAC</span></p>
+                <div class="terminal w-full max-w-lg mx-auto md:mx-0 mb-8 p-4">
+                    <span class="text-neon cursor">
+                        Passionate about software development, focusing on both backend and frontend technologies.  
+                        Currently diving into emerging fields like AI, Blockchain, and Cloud Computing to build innovative solutions.  
+                        When I’m not coding, I’m exploring virtual worlds.  
+                    </span>                  
 
+                    
+                                 
+                 </div>
+                <div class="flex justify-center md:justify-start space-x-4">
+                    <a href="#contact" class="bg-transparent hover:bg-neon/10 text-neon border border-neon px-6 py-3 rounded shadow-lg shadow-neon/20 transition duration-300 hover:shadow-neon/40">Contact Me</a>
+                    <a href="#projects" class="bg-neon/10 hover:bg-neon/20 text-neon px-6 py-3 rounded shadow-lg shadow-neon/20 transition duration-300 hover:shadow-neon/40">View Projects</a>
+                </div>
+            </div>
         </div>
+    </section>
 
-      </div>
-    </section><!-- End Contact Section -->
-
-  </main><!-- End #main -->
-
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
-    <div class="container">
-      <div class="copyright">
-        &copy; Copyright <strong><span></span></strong>
-      </div>
-      <div class="credits">
-
-      </div>
+    <!-- About Section -->
+    <section id="about" class="py-12 bg-darker matrix-bg">
+        <div class="container mx-auto px-6">
+            <div class="terminal inline-block mb-4 px-3 py-1 mx-auto">
+                <span class="text-neon">kev@portfolio:~#</span> <span class="text-gray-400">cat about.txt</span>
+            </div>
+            <h2 class="text-3xl font-bold text-center text-white mb-12">About Me</h2>
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <h3 class="text-2xl font-semibold text-neon mb-4">My Story</h3>
+                    <div class="terminal p-4 mb-4">
+                        <p class="text-gray-300 mb-4">Since I can remember, technology has always been a part of my life, which led me to pursue a degree in Systems Engineering. Driven by a desire to improve the quality of life for people and enhance the world around us. My curiosity about how computers work and the vast potential of the software field led me to pursue a degree in Computer Science and Systems Engineering. The endless possibilities in this field continue to inspire me every day.</p>
+                        <p class="text-gray-300 mb-4">Through my studies, I aim to develop innovative solutions that can make a positive impact on the world, using technology to solve real-world challenges and create a better future for all.</p>
+                        <p class="text-gray-300">In addition to my passion for software, I am also an avid sports enthusiast, and this curiosity drives me to explore game development and other exciting fields. When I’m not coding, I’m exploring virtual worlds, always seeking new challenges and learning experiences.</p>                    
+                    </div>
+                </div>
+                <div class="md:w-1/2 md:pl-12">
+                    <h3 class="text-2xl font-semibold text-neon mb-4">My Skills</h3>
+                    
+<!-- Frontend Skills -->
+<div class="mb-6">
+    <h4 class="text-neon mb-3">Frontend Technologies</h4>
+    <div class="mb-3">
+        <div class="flex justify-between mb-1">
+            <span class="text-gray-300">HTML</span>
+            <span class="text-neon">80%</span>
+        </div>
+        <div class="w-full bg-terminal rounded-full h-2">
+            <div class="bg-neon h-2 rounded-full" style="width: 80%"></div>
+        </div>
     </div>
-  </footer>
+    <div class="mb-3">
+        <div class="flex justify-between mb-1">
+            <span class="text-gray-300">CSS</span>
+            <span class="text-neon">75%</span>
+        </div>
+        <div class="w-full bg-terminal rounded-full h-2">
+            <div class="bg-neon h-2 rounded-full" style="width: 75%"></div>
+        </div>
+    </div>
+    <div class="mb-3">
+        <div class="flex justify-between mb-1">
+            <span class="text-gray-300">React</span>
+            <span class="text-neon">70%</span>
+        </div>
+        <div class="w-full bg-terminal rounded-full h-2">
+            <div class="bg-neon h-2 rounded-full" style="width: 70%"></div>
+        </div>
+    </div>
+    <div class="mb-3">
+        <div class="flex justify-between mb-1">
+            <span class="text-gray-300">Tailwind</span>
+            <span class="text-neon">80%</span>
+        </div>
+        <div class="w-full bg-terminal rounded-full h-2">
+            <div class="bg-neon h-2 rounded-full" style="width: 80%"></div>
+        </div>
+    </div>
+    <div class="mb-3">
+        <div class="flex justify-between mb-1">
+            <span class="text-gray-300">Vite</span>
+            <span class="text-neon">70%</span>
+        </div>
+        <div class="w-full bg-terminal rounded-full h-2">
+            <div class="bg-neon h-2 rounded-full" style="width: 70%"></div>
+        </div>
+    </div>
+</div>
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<!-- Backend Skills -->
+<div class="mb-6">
+    <h4 class="text-neon mb-3">Programming Languages</h4>
+    <div class="mb-3">
+        <div class="flex justify-between mb-1">
+            <span class="text-gray-300">JavaScript</span>
+            <span class="text-neon">85%</span>
+        </div>
+        <div class="w-full bg-terminal rounded-full h-2">
+            <div class="bg-neon h-2 rounded-full" style="width: 85%"></div>
+        </div>
+    </div>
+    <div class="mb-3">
+        <div class="flex justify-between mb-1">
+            <span class="text-gray-300">Python</span>
+            <span class="text-neon">80%</span>
+        </div>
+        <div class="w-full bg-terminal rounded-full h-2">
+            <div class="bg-neon h-2 rounded-full" style="width: 80%"></div>
+        </div>
+    </div>
+    <div class="mb-3">
+        <div class="flex justify-between mb-1">
+            <span class="text-gray-300">Golang</span>
+            <span class="text-neon">65%</span>
+        </div>
+        <div class="w-full bg-terminal rounded-full h-2">
+            <div class="bg-neon h-2 rounded-full" style="width: 65%"></div>
+        </div>
+    </div>
+    <div class="mb-3">
+        <div class="flex justify-between mb-1">
+            <span class="text-gray-300">Java</span>
+            <span class="text-neon">60%</span>
+        </div>
+        <div class="w-full bg-terminal rounded-full h-2">
+            <div class="bg-neon h-2 rounded-full" style="width: 60%"></div>
+        </div>
+    </div>
+    <div class="mb-3">
+        <div class="flex justify-between mb-1">
+            <span class="text-gray-300">Rust</span>
+            <span class="text-neon">55%</span>
+        </div>
+        <div class="w-full bg-terminal rounded-full h-2">
+            <div class="bg-neon h-2 rounded-full" style="width: 55%"></div>
+        </div>
+    </div>
+</div>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/typed.js/typed.min.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+<!-- Tools & Infrastructure -->
+<div>
+    <h4 class="text-neon mb-3">Tools & Infrastructure</h4>
+    <div class="mb-3">
+        <div class="flex justify-between mb-1">
+            <span class="text-gray-300">Node.js</span>
+            <span class="text-neon">80%</span>
+        </div>
+        <div class="w-full bg-terminal rounded-full h-2">
+            <div class="bg-neon h-2 rounded-full" style="width: 80%"></div>
+        </div>
+    </div>
+    <div class="mb-3">
+        <div class="flex justify-between mb-1">
+            <span class="text-gray-300">MySQL/MongoDB</span>
+            <span class="text-neon">75%</span>
+        </div>
+        <div class="w-full bg-terminal rounded-full h-2">
+            <div class="bg-neon h-2 rounded-full" style="width: 75%"></div>
+        </div>
+    </div>
+    <div class="mb-3">
+        <div class="flex justify-between mb-1">
+            <span class="text-gray-300">Docker/AWS</span>
+            <span class="text-neon">70%</span>
+        </div>
+        <div class="w-full bg-terminal rounded-full h-2">
+            <div class="bg-neon h-2 rounded-full" style="width: 70%"></div>
+        </div>
+    </div>
+    <div class="mb-3">
+        <div class="flex justify-between mb-1">
+            <span class="text-gray-300">Git/SCRUM</span>
+            <span class="text-neon">85%</span>
+        </div>
+        <div class="w-full bg-terminal rounded-full h-2">
+            <div class="bg-neon h-2 rounded-full" style="width: 85%"></div>
+        </div>
+    </div>
+</div>
 
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+    </section>
 
+    <!-- Projects Section -->
+    <section id="projects" class="py-12 bg-dark matrix-bg">
+        <div class="container mx-auto px-6">
+            <div class="terminal inline-block mb-4 px-3 py-1 mx-auto">
+                <span class="text-neon">kev@portfolio:~#</span> <span class="text-gray-400">ls -la projects/</span>
+            </div>
+            <h2 class="text-3xl font-bold text-center text-white mb-12">My Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-terminal border border-neon/30 rounded-lg overflow-hidden shadow-lg shadow-neon/10 transition-transform duration-300 hover:transform hover:scale-105 hover:shadow-neon/20">
+                    <img src="./imgs/1Postman.png" alt="Project 1" class="w-full h-48 object-cover opacity-80 grayscale hover:grayscale-0 transition-all duration-300">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-neon mb-2">Library API</h3>
+                        <p class="text-gray-400 mb-4">This is a simple Flask-based API designed to handle basic backend operations. The API provides endpoints to perform fundamental CRUD (Create, Read, Update, Delete) operations, making it an easy-to-use solution for basic backend services.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-neon/10 text-neon rounded-full text-xs">Python</span>
+                            <span class="px-2 py-1 bg-neon/10 text-neon rounded-full text-xs">Flask</span>
+                            <span class="px-2 py-1 bg-neon/10 text-neon rounded-full text-xs">Flask Cors</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <button class="text-neon hover:text-neon-dark transition duration-300 preview-btn" data-project="project1">Preview Project</button>
+                            <a href="https://github.com/KevinPalaciosQ/IPC1_Proyecto2_201902278/tree/main" class="text-neon hover:text-neon-dark transition duration-300">Code</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="bg-terminal border border-neon/30 rounded-lg overflow-hidden shadow-lg shadow-neon/10 transition-transform duration-300 hover:transform hover:scale-105 hover:shadow-neon/20">
+                    <img src="./imgs/Proyecto2.png" alt="Project 2" class="w-full h-48 object-cover opacity-80 grayscale hover:grayscale-0 transition-all duration-300">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-neon mb-2">Christmas Puzzle</h3>
+                        <p class="text-gray-400 mb-4">Interactive Christmas Puzzle game for the Guatemala Government's holiday festival, featuring multi-level puzzle challenges with scoring system and prize distribution.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-neon/10 text-neon rounded-full text-xs">Python</span>
+                            <span class="px-2 py-1 bg-neon/10 text-neon rounded-full text-xs">Tkinter</span>
+                            <span class="px-2 py-1 bg-neon/10 text-neon rounded-full text-xs">Colorama</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <button class="text-neon hover:text-neon-dark transition duration-300 preview-btn" data-project="project2">Preview Project</button>
+                            <a href="#" class="text-neon hover:text-neon-dark transition duration-300">Code</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="bg-terminal border border-neon/30 rounded-lg overflow-hidden shadow-lg shadow-neon/10 transition-transform duration-300 hover:transform hover:scale-105 hover:shadow-neon/20">
+                    <img src="./imgs/Proyecto3.png" alt="Project 3" class="w-full h-48 object-cover opacity-80 grayscale hover:grayscale-0 transition-all duration-300">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-neon mb-2">Pensum USAC</h3>
+                        <p class="text-gray-400 mb-4">This system uses an CSV file to track credits and assists students in choosing the best path to complete their degree requirements efficiently.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-neon/10 text-neon rounded-full text-xs">Python</span>
+                            <span class="px-2 py-1 bg-neon/10 text-neon rounded-full text-xs">Tkinter</span>
+                            <span class="px-2 py-1 bg-neon/10 text-neon rounded-full text-xs">Sys</span>
+                            <span class="px-2 py-1 bg-neon/10 text-neon rounded-full text-xs">Nontype</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <button class="text-neon hover:text-neon-dark transition duration-300 preview-btn" data-project="project3">Preview Project</button>
+                            <a href="https://github.com/KevinPalaciosQ/-LFP-P1_201902278.git" class="text-neon hover:text-neon-dark transition duration-300">Code</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="bg-terminal border border-neon/30 rounded-lg overflow-hidden shadow-lg shadow-neon/10 transition-transform duration-300 hover:transform hover:scale-105 hover:shadow-neon/20">
+                    <img src="./imgs/proyecto4.png" alt="Project 4" class="w-full h-48 object-cover opacity-80 grayscale hover:grayscale-0 transition-all duration-300">
+                    <div class="p-6">
+                        <h2 class="text-2xl font-bold text-neon mb-4">EDD GODrive</h2>              
+                        <p class="text-gray-400 mb-4">University file management system with advanced security features, utilizing directed graphs, hash tables, and blockchain technology for secure user authentication and message encryption.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-neon/10 text-neon rounded-full text-sm">JavaScript</span>
+                            <span class="px-3 py-1 bg-neon/10 text-neon rounded-full text-sm">Blockchain</span>
+                            <span class="px-3 py-1 bg-neon/10 text-neon rounded-full text-sm">Hash Tables</span>
+                            <span class="px-3 py-1 bg-neon/10 text-neon rounded-full text-sm">Security</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <button class="text-neon hover:text-neon-dark transition duration-300 preview-btn" data-project="project4">Preview Project</button>
+                            <a href="#" class="text-neon hover:text-neon-dark transition duration-300">Code</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="bg-terminal border border-neon/30 rounded-lg overflow-hidden shadow-lg shadow-neon/10 transition-transform duration-300 hover:transform hover:scale-105 hover:shadow-neon/20">
+                    <img src="./imgs/proyecto5.png" alt="Project 5" class="w-full h-48 object-cover opacity-80 grayscale hover:grayscale-0 transition-all duration-300">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-neon mb-2">DataForge</h3>
+                        <p class="text-gray-400 mb-4">A custom programming language interpreter with lexical and syntactic analysis, supporting statistical functions, data visualization, and console-based interactions.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-neon/10 text-neon rounded-full text-xs">Java</span>
+                            <span class="px-2 py-1 bg-neon/10 text-neon rounded-full text-xs">JFlex</span>
+                            <span class="px-2 py-1 bg-neon/10 text-neon rounded-full text-xs">CUP</span>
+                            <span class="px-2 py-1 bg-neon/10 text-neon rounded-full text-xs">JFreeChart</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <button class="text-neon hover:text-neon-dark transition duration-300 preview-btn" data-project="project5">Preview Project</button>
+                            <a href="https://github.com/KevinPalaciosQ/OLC1_Proyecto1_201902278/tree/main" class="text-neon hover:text-neon-dark transition duration-300">Code</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 6 -->
+                <div class="bg-terminal border border-neon/30 rounded-lg overflow-hidden shadow-lg shadow-neon/10 transition-transform duration-300 hover:transform hover:scale-105 hover:shadow-neon/20">
+                    <img src="./imgs/proyecto6.png" alt="Project 6" class="w-full h-48 object-cover opacity-80 grayscale hover:grayscale-0 transition-all duration-300">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-neon mb-2">Redes USAC</h3>
+                        <p class="text-gray-400 mb-4">Network configuration and topology simulation project that tests connectivity and optimizes router and switch configurations in a virtual network environment.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-neon/10 text-neon rounded-full text-xs">Cisco</span>
+                            <span class="px-2 py-1 bg-neon/10 text-neon rounded-full text-xs">Router Configuration</span>
+                            <span class="px-2 py-1 bg-neon/10 text-neon rounded-full text-xs">Network Simulation</span>
+                            <span class="px-2 py-1 bg-neon/10 text-neon rounded-full text-xs">VPC</span>
+                        </div>
+                        
+                        <div class="flex justify-between">
+                            <button class="text-neon hover:text-neon-dark transition duration-300 preview-btn" data-project="project6">Preview Project</button>
+                            <a href="https://github.com/KevinPalaciosQ/REDES1_201902278_PRA2/tree/main" class="text-neon hover:text-neon-dark transition duration-300">Code</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 7 -->
+                <div class="bg-terminal border border-neon/30 rounded-lg overflow-hidden shadow-lg shadow-neon/10 transition-transform duration-300 hover:transform hover:scale-105 hover:shadow-neon/20">
+                    <img src="./imgs/proc7.jpeg" alt="Project 7" class="w-full h-48 object-cover opacity-80 grayscale hover:grayscale-0 transition-all duration-300">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-neon mb-2">Container Manager</h3>
+                        <p class="text-gray-400 mb-4">A comprehensive container management system that provides deep insights into Linux container operations, utilizing kernel modules, bash scripting, and Rust for advanced system monitoring and container lifecycle management.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-neon/10 text-neon rounded-full text-xs">Rust</span>
+                            <span class="px-2 py-1 bg-neon/10 text-neon rounded-full text-xs">C</span>
+                            <span class="px-2 py-1 bg-neon/10 text-neon rounded-full text-xs">Docker</span>
+                            <span class="px-2 py-1 bg-neon/10 text-neon rounded-full text-xs">Bash</span>
+                            <span class="px-2 py-1 bg-neon/10 text-neon rounded-full text-xs">Python</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <button class="text-neon hover:text-neon-dark transition duration-300 preview-btn" data-project="project7">Preview Project</button>
+                            <a href="https://github.com/KevinPalaciosQ/SO1_2S2024_201902278.git" class="text-neon hover:text-neon-dark transition duration-300">Code</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 8 -->
+                <div class="bg-terminal border border-neon/30 rounded-lg overflow-hidden shadow-lg shadow-neon/10 transition-transform duration-300 hover:transform hover:scale-105 hover:shadow-neon/20">
+                    <img src="./imgs/proyecto8.png" alt="Project 8" class="w-full h-48 object-cover opacity-80 grayscale hover:grayscale-0 transition-all duration-300">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-neon mb-2">Usac Linux</h3>
+                        <p class="text-gray-400 mb-4">This project focuses on enhancing the Linux kernel by adding custom system calls and kernel modules, integrating security functionalities, and monitoring system performance through custom syscalls.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-neon/10 text-neon rounded-full text-xs">Linux Kernel</span>
+                            <span class="px-2 py-1 bg-neon/10 text-neon rounded-full text-xs">C Programming</span>
+                            <span class="px-2 py-1 bg-neon/10 text-neon rounded-full text-xs">Syscalls</span>
+                        </div>
+                        
+                        <div class="flex justify-between">
+                            <button class="text-neon hover:text-neon-dark transition duration-300 preview-btn" data-project="project8">Preview Project</button>
+                            <a href="https://github.com/KevinPalaciosQ/So2_201902278_VD2024/tree/main" class="text-neon hover:text-neon-dark transition duration-300">Code</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 9 -->
+                <div class="bg-terminal border border-neon/30 rounded-lg overflow-hidden shadow-lg shadow-neon/10 transition-transform duration-300 hover:transform hover:scale-105 hover:shadow-neon/20">
+                    <img src="./imgs/proc9.jpeg" alt="Project 9" class="w-full h-48 object-cover opacity-80 grayscale hover:grayscale-0 transition-all duration-300">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-neon mb-2">Sound-Stream</h3>
+                        <p class="text-gray-400 mb-4">Music streaming platform built on AWS, enabling multimedia sharing, playlist creation, and user management with robust cloud infrastructure.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-neon/10 text-neon rounded-full text-xs">NodeJS</span>
+                            <span class="px-2 py-1 bg-neon/10 text-neon rounded-full text-xs">Python</span>
+                            <span class="px-2 py-1 bg-neon/10 text-neon rounded-full text-xs">AWS</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <button class="text-neon hover:text-neon-dark transition duration-300 preview-btn" data-project="project9">Preview Project</button>
+                            <a href="https://github.com/KevinPalaciosQ/SoundSemi" class="text-neon hover:text-neon-dark transition duration-300">Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-12 bg-darker matrix-bg">
+        <div class="container mx-auto px-6">
+            <div class="terminal inline-block mb-4 px-3 py-1 mx-auto">
+                <span class="text-neon">kev@portfolio:~#</span> <span class="text-gray-400">./connect.sh</span>
+            </div>
+            <h2 class="text-3xl font-bold text-center text-white mb-12">Contact Me</h2>
+            <div class="flex justify-center">
+                <div class="w-full max-w-2xl">
+                    <div class="bg-terminal border border-neon/30 p-6 rounded-lg shadow-lg shadow-neon/10">
+                        <h3 class="text-2xl font-semibold text-neon mb-4">Contact Information</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="text-neon mr-3">
+                                    <i class="fas fa-envelope text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-gray-300 font-medium">Email</h4>
+                                    <p class="text-gray-400">palacioskevin17@gmail.com</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="text-neon mr-3">
+                                <i class="fas fa-phone text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-gray-300 font-medium">Teléfono</h4>
+                                <p class="text-gray-400">+502 58707766</p>
+                            </div>
+                        </div>
+                            <div class="flex items-start">
+                                <div class="text-neon mr-3">
+                                    <i class="fas fa-map-marker-alt text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-gray-300 font-medium">Location</h4>
+                                    <p class="text-gray-400">Guatemala City</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-6">
+                            <h4 class="text-gray-300 font-medium mb-3">Social Networks</h4>
+                            <div class="flex space-x-4">
+                                <a href="https://github.com/KevinPalaciosQ" class="text-gray-400 hover:text-neon transition duration-300" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-github text-2xl"></i>
+                                </a>
+                                
+                                <a href="https://www.linkedin.com/in/kevin-palacios1997/" class="text-gray-400 hover:text-neon transition duration-300">
+                                    <i class="fab fa-linkedin text-2xl"></i>
+                                </a>
+                                <a href="https://discord.com/users/711707828196343900" class="text-gray-400 hover:text-neon transition duration-300" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-discord text-2xl"></i>
+                                </a>                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-darker border-t border-neon/30 text-gray-400 py-8">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-xl font-bold text-neon">&lt;/Kevin_Palacios&gt;</h3>
+                    <p class="text-gray-500 mt-2">© 2025 All rights reserved | <span class="text-neon">kev@portfolio:~#</span></p>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-500 hover:text-neon transition duration-300">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-500 hover:text-neon transition duration-300">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-500 hover:text-neon transition duration-300">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-500 hover:text-neon transition duration-300">
+                        <i class="fab fa-discord text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Modals -->
+    <!-- Project 1 Modal -->
+    <div id="project1Modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" data-project="project1">&times;</span>
+            <div class="p-6">
+                <div class="terminal inline-block mb-4 px-3 py-1">
+                    <span class="text-neon">kev@portfolio:~#</span> <span class="text-gray-400">cat project_details.md</span>
+                </div>
+                <h2 class="text-2xl font-bold text-neon mb-4">Library API</h2>
+                <div class="mb-6">
+                    <img src="./imgs/2Postman.png" alt="Project 1 Preview" class="w-full h-auto object-contain border border-neon/30 rounded-lg">
+                </div>
+                <div class="terminal p-4 mb-6">
+                    <p class="text-gray-300 mb-4">Postman is an essential tool for API development and testing, widely used to streamline the process of creating and interacting with APIs. It provides a user-friendly interface to make HTTP requests and analyze responses in real time.</p>
+                    <p class="text-gray-300 mb-4">Postman supports a variety of request types (GET, POST, PUT, DELETE) and allows users to organize and automate tests. It also provides advanced features like environment management, API documentation generation, and integration with CI/CD pipelines.</p>
+                    <p class="text-gray-300">Key features include:</p>
+                    <ul class="list-disc pl-5 text-gray-300 mt-2 mb-4">
+                        <li>Easy-to-use interface for sending API requests</li>
+                        <li>Support for multiple HTTP methods (GET, POST, PUT, DELETE, etc.)</li>
+                        <li>Environment management to store variables for different settings (dev, staging, production)</li>
+                        <li>Automated tests and validation of API responses</li>
+                        <li>Ability to organize requests into collections for reusability</li>
+                        <li>API documentation generation and sharing</li>
+                    </ul>
+                </div>
+                
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <span class="px-3 py-1 bg-neon/10 text-neon rounded-full text-sm">Python</span>
+                    <span class="px-3 py-1 bg-neon/10 text-neon rounded-full text-sm">Flask</span>
+                    <span class="px-3 py-1 bg-neon/10 text-neon rounded-full text-sm">Flask Cors</span>
+                    <span class="px-3 py-1 bg-neon/10 text-neon rounded-full text-sm">Postman</span>
+                </div>
+                <div class="flex justify-end">
+                    <a href="#" class="bg-neon/10 hover:bg-neon/20 text-neon border border-neon px-6 py-3 rounded shadow-lg shadow-neon/20 transition duration-300 hover:shadow-neon/40">View Source Code</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project 2 Modal -->
+    <div id="project2Modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" data-project="project2">&times;</span>
+            <div class="p-6">
+                <div class="terminal inline-block mb-4 px-3 py-1">
+                    <span class="text-neon">kev@portfolio:~#</span> <span class="text-gray-400">cat project_details.md</span>
+                </div>
+                <h2 class="text-2xl font-bold text-neon mb-4">Christmas Puzzle</h2>
+                <div class="mb-6">
+                    <img src="./imgs/proyecto21.png" alt="Project 2 Preview" class="w-full h-64 object-cover border border-neon/30 rounded-lg">
+                </div>
+                <div class="terminal p-4 mb-6">
+                    <p class="text-gray-300 mb-4">The Christmas Puzzle is an interactive game developed for the Guatemala Government's holiday festival, allowing citizens to play a color-based puzzle challenge on a touchscreen with multiple difficulty levels and figure configurations.</p>
+                    <p class="text-gray-300 mb-4">The application manages participant queues, tracks puzzle-solving performance, and calculates scores based on puzzle dimensions, movement efficiency, and selected figure complexity.</p>
+                    <p class="text-gray-300">Key features include:</p>
+                    <ul class="list-disc pl-5 text-gray-300 mt-2 mb-4">
+                        <li>Puzzle sizes from 5x5 to 30x30 grid</li>
+                        <li>Three figure options: Star of Bethlehem, Christmas Tree, Gift</li>
+                        <li>Scoring system based on puzzle dimension, movements, and figure</li>
+                        <li>Top 10 players prize distribution</li>
+                        <li>Dynamic queue and prize stack management</li>
+                        <li>XML-based configuration for game setup</li>
+                    </ul>
+                </div>
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <span class="px-3 py-1 bg-neon/10 text-neon rounded-full text-sm">Python</span>
+                    <span class="px-3 py-1 bg-neon/10 text-neon rounded-full text-sm">Colorame</span>
+                    <span class="px-3 py-1 bg-neon/10 text-neon rounded-full text-sm">Tkinter</span>
+                </div>
+                <div class="flex justify-end">
+                    <a href="https://github.com/KevinPalaciosQ/IPC2_Proyecto1_201902278" class="bg-neon/10 hover:bg-neon/20 text-neon border border-neon px-6 py-3 rounded shadow-lg shadow-neon/20 transition duration-300 hover:shadow-neon/40">View Source Code</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project 3 Modal -->
+    <div id="project3Modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" data-project="project3">&times;</span>
+            <div class="p-6">
+                <div class="terminal inline-block mb-4 px-3 py-1">
+                    <span class="text-neon">kev@portfolio:~#</span> <span class="text-gray-400">cat project_details.md</span>
+                </div>
+                <h2 class="text-2xl font-bold text-neon mb-4">Pensum USAC</h2>
+                <div class="mb-6">
+                    <img src="./imgs/Proyecto31.png" alt="Project 3 Preview" class="object-contain border border-neon/30 rounded-lg">
+                </div>
+                <div class="terminal p-4 mb-6">
+                    <p class="text-gray-300 mb-4">This system uses an XML file to track student credits and assist in course management. It helps students keep track of the courses they've completed and suggests the best course path to efficiently meet their degree requirements.</p>
+                    <p class="text-gray-300 mb-4">The system continuously updates the credit count based on the courses completed, providing real-time guidance on which courses to take next in order to optimize the path toward closing the degree plan.</p>
+                    <p class="text-gray-300">Key features include:</p>
+                    <ul class="list-disc pl-5 text-gray-300 mt-2 mb-4">
+                        <li>Real-time credit tracking from course completion</li>
+                        <li>XML file management for storing and organizing course data</li>
+                        <li>Recommendations for the optimal course path to close the degree plan</li>
+                        <li>Course prerequisites and credit validation</li>
+                        <li>Automated alerts for upcoming courses or missing credits</li>
+                        <li>Easy integration with student management systems</li>
+                    </ul>
+                </div>
+                
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <span class="px-3 py-1 bg-neon/10 text-neon rounded-full text-sm">Python</span>
+                    <span class="px-3 py-1 bg-neon/10 text-neon rounded-full text-sm">Tkinter</span>
+                    <span class="px-3 py-1 bg-neon/10 text-neon rounded-full text-sm">Sys</span>
+                </div>
+                <div class="flex justify-end">
+                    <a href="#" class="bg-neon/10 hover:bg-neon/20 text-neon border border-neon px-6 py-3 rounded shadow-lg shadow-neon/20 transition duration-300 hover:shadow-neon/40">View Source Code</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Project 4 Modal -->
+    <div id="project4Modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" data-project="project4">&times;</span>
+            <div class="p-6">
+                <div class="terminal inline-block mb-4 px-3 py-1">
+                    <span class="text-neon">kev@portfolio:~#</span> <span class="text-gray-400">cat project_details.md</span>
+                </div>
+                <h2 class="text-2xl font-bold text-neon mb-4">EDD GODrive</h2>
+                <div class="mb-6">
+                    <img src="./imgs/proyecto41.png" alt="Project 4 Preview" class="w-full h-auto object-contain border border-neon/30 rounded-lg">
+                </div>
+                <div class="terminal p-4 mb-6">
+                    <p class="text-gray-300 mb-4">A comprehensive web-based file management system for the University of San Carlos, designed with advanced security features and innovative data structures to provide secure file storage, user authentication, and communication.</p>
+                    <p class="text-gray-300 mb-4">The platform leverages complex data structures including directed graphs for folder management, hash tables for user storage, and blockchain for secure messaging and data encryption.</p>
+                    <p class="text-gray-300">Key features include:</p>
+                    <ul class="list-disc pl-5 text-gray-300 mt-2 mb-4">
+                        <li>Advanced user authentication with hash table storage</li>
+                        <li>Encrypted file sharing across university courses</li>
+                        <li>Blockchain-based secure messaging system</li>
+                        <li>Dynamic folder management using directed graphs</li>
+                        <li>AES encryption for user passwords and messages</li>
+                        <li>Comprehensive admin and user dashboard</li>
+                    </ul>
+                </div>
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <span class="px-3 py-1 bg-neon/10 text-neon rounded-full text-sm">JavaScript</span>
+                    <span class="px-3 py-1 bg-neon/10 text-neon rounded-full text-sm">Blockchain</span>
+                    <span class="px-3 py-1 bg-neon/10 text-neon rounded-full text-sm">Hash Tables</span>
+                    <span class="px-3 py-1 bg-neon/10 text-neon rounded-full text-sm">Security</span>
+                </div>
+                <div class="flex justify-end">
+                    <a href="https://github.com/KevinPalaciosQ/EDD_1S2023_PY_201902278/tree/gh-pages" class="bg-neon/10 hover:bg-neon/20 text-neon border border-neon px-6 py-3 rounded shadow-lg shadow-neon/20 transition duration-300 hover:shadow-neon/40">View Source Code</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Project 5 Modal -->
+    <div id="project5Modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" data-project="project5">&times;</span>
+            <div class="p-6">
+                <div class="terminal inline-block mb-4 px-3 py-1">
+                    <span class="text-neon">kev@portfolio:~#</span> <span class="text-gray-400">cat project_details.md</span>
+                </div>
+                <h2 class="text-2xl font-bold text-neon mb-4">Password Vault</h2>
+                <div class="mb-6">
+                    <img src="./imgs/proyecto51.png" alt="Project 5 Preview" class="w-full h-auto object-contain border border-neon/30 rounded-lg">
+                </div>
+                <div class="terminal p-4 mb-6">
+                    <p class="text-gray-300 mb-4">DataForge is a custom programming language interpreter designed for statistical analysis and data visualization, providing a comprehensive environment for code development, execution, and reporting.</p>
+                    <p class="text-gray-300 mb-4">Built with Java and leveraging JFlex and CUP for lexical and syntactic analysis, this project enables users to perform complex data operations, generate statistical insights, and create multiple types of graphical representations.</p>
+                    <p class="text-gray-300">Key features include:</p>
+                    <ul class="list-disc pl-5 text-gray-300 mt-2 mb-4">
+                        <li>Statistical function support (mean, median, mode, variance)</li>
+                        <li>Multiple graph generation (Bar, Pie, Line, Histogram)</li>
+                        <li>Advanced console printing capabilities</li>
+                        <li>Case-insensitive language design</li>
+                        <li>Support for double and string data types</li>
+                        <li>One-dimensional array handling</li>
+                        <li>Comprehensive error and token reporting</li>
+                    </ul>
+                    </div>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-3 py-1 bg-neon/10 text-neon rounded-full text-sm">Java</span>
+                        <span class="px-3 py-1 bg-neon/10 text-neon rounded-full text-sm">JFlex</span>
+                        <span class="px-3 py-1 bg-neon/10 text-neon rounded-full text-sm">CUP</span>
+                        <span class="px-3 py-1 bg-neon/10 text-neon rounded-full text-sm">JFreeChart</span>
+                        <span class="px-3 py-1 bg-neon/10 text-neon rounded-full text-sm">Compiler Design</span>
+                    </div>
+                <div class="flex justify-end">
+                    <a href="https://github.com/KevinPalaciosQ/OLC1_Proyecto1_201902278/tree/main" class="bg-neon/10 hover:bg-neon/20 text-neon border border-neon px-6 py-3 rounded shadow-lg shadow-neon/20 transition duration-300 hover:shadow-neon/40">View Source Code</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Project 6 Modal -->
+    <div id="project6Modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" data-project="project6">&times;</span>
+            <div class="p-6">
+                <div class="terminal inline-block mb-4 px-3 py-1">
+                    <span class="text-neon">kev@portfolio:~#</span> <span class="text-gray-400">cat project_details.md</span>
+                </div>
+                <h2 class="text-2xl font-bold text-neon mb-4">Redes USAC</h2>
+                <div class="mb-6">
+                    <img src="./imgs/proyecto61.png" alt="Project 6 Preview" class="w-full h-auto object-contain border border-neon/30 rounded-lg">
+                </div>
+                <div class="terminal p-4 mb-6">
+                    <p class="text-gray-300 mb-4">This network configuration and simulation tool helps optimize router and switch setups, while ensuring proper connectivity and network performance in a virtual environment. It simulates a range of network topologies and provides detailed analysis of traffic flow, routing paths, and device configurations.</p>
+                    <p class="text-gray-300 mb-4">The tool offers real-time feedback during configuration, assisting network engineers in fine-tuning their setups and ensuring reliable communication across devices. It also supports the generation of configuration files for Cisco devices, making it easier to deploy on actual hardware.</p>
+                    <p class="text-gray-300">Key features include:</p>
+                    <ul class="list-disc pl-5 text-gray-300 mt-2 mb-4">
+                        <li>Support for Cisco routers and switches</li>
+                        <li>Topology simulation with VPC and network segmentation</li>
+                        <li>Real-time connectivity tests and ping verification</li>
+                        <li>Automatic generation of network configuration files</li>
+                        <li>Optimized routing and switch configuration suggestions</li>
+                        <li>Integration with virtual network environments</li>
+                        <li>Detailed diagnostic reports with suggested improvements</li>
+                    </ul>
+                </div>
+                
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <span class="px-3 py-1 bg-neon/10 text-neon rounded-full text-sm">Python</span>
+                    <span class="px-3 py-1 bg-neon/10 text-neon rounded-full text-sm">Go</span>
+                    <span class="px-3 py-1 bg-neon/10 text-neon rounded-full text-sm">AST</span>
+                    <span class="px-3 py-1 bg-neon/10 text-neon rounded-full text-sm">Static Analysis</span>
+                    <span class="px-3 py-1 bg-neon/10 text-neon rounded-full text-sm">Security</span>
+                </div>
+                <div class="flex justify-end">
+                    <a href="https://github.com/KevinPalaciosQ/REDES1_201902278_PRA2/tree/main" class="bg-neon/10 hover:bg-neon/20 text-neon border border-neon px-6 py-3 rounded shadow-lg shadow-neon/20 transition duration-300 hover:shadow-neon/40">View Source Code</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Project 7 Modal -->
+    <div id="project7Modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" data-project="project7">&times;</span>
+            <div class="p-6">
+                <div class="terminal inline-block mb-4 px-3 py-1">
+                    <span class="text-neon">kev@portfolio:~#</span> <span class="text-gray-400">cat project_details.md</span>
+                </div>
+                <h2 class="text-2xl font-bold text-neon mb-4">Container Manager</h2>
+                <div class="mb-6">
+                    <img src="./imgs/proc71.jpeg" alt="Project 7 Preview" class="w-full h-auto object-contain border border-neon/30 rounded-lg">
+                </div>
+                <div class="terminal p-4 mb-6">
+                    <p class="text-gray-300 mb-4">A comprehensive container management system that provides deep insights into Linux container operations, utilizing kernel modules, bash scripting, and Rust for advanced system monitoring and container lifecycle management.</p>
+                    <p class="text-gray-300 mb-4">Built using a multi-technology approach, the project combines C kernel modules, Rust services, and Docker to create a robust system for generating, tracking, and analyzing container resources in real-time.</p>
+                    <p class="text-gray-300">Key features include:</p>
+                    <ul class="list-disc pl-5 text-gray-300 mt-2 mb-4">
+                        <li>Automatic container generation with resource-based categorization
+                            <span class="block text-gray-400 text-sm mt-1">Dynamically creates 10 containers with high and low resource consumption profiles using a cronjob</span>
+                        </li>
+                        <li>Real-time monitoring of container memory and CPU usage
+                            <span class="block text-gray-400 text-sm mt-1">Captures detailed metrics including total RAM, free memory, and process-level resource utilization</span>
+                        </li>
+                        <li>Kernel-level metrics collection and logging
+                            <span class="block text-gray-400 text-sm mt-1">Uses Linux kernel modules to extract comprehensive system and container information stored in /proc</span>
+                        </li>
+                        <li>Dynamic container management and elimination
+                            <span class="block text-gray-400 text-sm mt-1">Intelligent container lifecycle management with sorting and elimination based on resource usage</span>
+                        </li>
+                        <li>JSON-based system information reporting
+                            <span class="block text-gray-400 text-sm mt-1">Generates structured logs with detailed process information, including PID, container ID, and resource consumption</span>
+                        </li>
+                    </ul>
+                    <p class="text-gray-300 mt-4">The system leverages Rust's memory safety, C kernel modules' low-level access, and Docker's containerization to create a powerful, flexible container management solution that provides unprecedented visibility into system resources and container operations.</p>
+                </div>
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <span class="px-3 py-1 bg-neon/10 text-neon rounded-full text-sm">Node.js</span>
+                    <span class="px-3 py-1 bg-neon/10 text-neon rounded-full text-sm">React</span>
+                    <span class="px-3 py-1 bg-neon/10 text-neon rounded-full text-sm">MongoDB</span>
+                    <span class="px-3 py-1 bg-neon/10 text-neon rounded-full text-sm">Email</span>
+                    <span class="px-3 py-1 bg-neon/10 text-neon rounded-full text-sm">Security Training</span>
+                </div>
+                <div class="flex justify-end">
+                    <a href="https://github.com/KevinPalaciosQ/SO1_2S2024_201902278/tree/main" class="bg-neon/10 hover:bg-neon/20 text-neon border border-neon px-6 py-3 rounded shadow-lg shadow-neon/20 transition duration-300 hover:shadow-neon/40">View Source Code</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Project 8 Modal -->
+    <div id="project8Modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" data-project="project8">&times;</span>
+            <div class="p-6">
+                <div class="terminal inline-block mb-4 px-3 py-1">
+                    <span class="text-neon">kev@portfolio:~#</span> <span class="text-gray-400">cat project_details.md</span>
+                </div>
+                <h2 class="text-2xl font-bold text-neon mb-4">USAC Linux</h2>
+                <div class="mb-6">
+                    <img src="./imgs/proc81.jpeg.png" alt="Project 8 Preview" class="w-full h-auto object-cover border border-neon/30 rounded-lg">
+                </div>
+                <div class="terminal p-4 mb-6">
+                    <p class="text-gray-300 mb-4">This project enhances the Linux kernel by implementing custom system calls and kernel modules, focusing on security functionalities and system performance monitoring. It integrates custom syscalls to capture memory snapshots, track system call usage, and retrieve I/O statistics.</p>
+                    <p class="text-gray-300 mb-4">The custom syscalls are designed to provide real-time insights into memory usage, system call activity, and I/O throttling, helping developers and system administrators monitor and optimize system performance efficiently.</p>
+                    <p class="text-gray-300">Key features include:</p>
+                    <ul class="list-disc pl-5 text-gray-300 mt-2 mb-4">
+                        <li>Custom memory snapshot retrieval</li>
+                        <li>Tracking of system call usage</li>
+                        <li>Real-time I/O statistics for process management</li>
+                        <li>Kernel module development and integration</li>
+                        <li>Low-level system performance monitoring</li>
+                        <li>Security enhancements via kernel modification</li>
+                    </ul>
+                    </div>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-3 py-1 bg-neon/10 text-neon rounded-full text-sm">Linux Kernel</span>
+                        <span class="px-3 py-1 bg-neon/10 text-neon rounded-full text-sm">C Programming</span>
+                        <span class="px-3 py-1 bg-neon/10 text-neon rounded-full text-sm">Syscalls</span>
+                        <span class="px-3 py-1 bg-neon/10 text-neon rounded-full text-sm">Kernel Modules</span>
+                        <span class="px-3 py-1 bg-neon/10 text-neon rounded-full text-sm">System Security</span>
+                    </div>
+                    
+                <div class="flex justify-end">
+                    <a href="https://github.com/KevinPalaciosQ/So2_201902278_VD2024/tree/main" class="bg-neon/10 hover:bg-neon/20 text-neon border border-neon px-6 py-3 rounded shadow-lg shadow-neon/20 transition duration-300 hover:shadow-neon/40">View Source Code</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Project 9 Modal -->
+    <div id="project9Modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" data-project="project9">&times;</span>
+            <div class="p-6">
+                <div class="terminal inline-block mb-4 px-3 py-1">
+                    <span class="text-neon">kev@portfolio:~#</span> <span class="text-gray-400">cat project_details.md</span>
+                </div>
+                <h2 class="text-2xl font-bold text-neon mb-4">Sound-Stream</h2>
+                <div class="mb-6">
+                    <img src="./imgs/proc91.jpeg" alt="Project 9 Preview" class="w-full h-auto object-cover border border-neon/30 rounded-lg">
+                </div>
+                <div class="terminal p-4 mb-6">
+                    <p class="text-gray-300 mb-4">SoundStream is a comprehensive music streaming platform designed to promote art in Guatemala, offering a robust, reliable, and user-friendly experience for music enthusiasts. The platform leverages AWS cloud services to provide seamless multimedia sharing and management.</p>
+                    <p class="text-gray-300 mb-4">The application supports two user types: administrators who can upload songs, and subscribers who can create playlists, play music, search for tracks, and view account statistics. It ensures a secure and scalable music streaming experience across web browsers.</p>
+                    <p class="text-gray-300">Key features include:</p>
+                    <ul class="list-disc pl-5 text-gray-300 mt-2 mb-4">
+                        <li>User authentication and registration</li>
+                        <li>Personalized playlist creation</li>
+                        <li>Music search functionality</li>
+                        <li>Random radio mode</li>
+                        <li>Favorite tracks management</li>
+                        <li>Profile customization</li>
+                        <li>Administrative song management</li>
+                    </ul>
+                </div>
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <span class="px-3 py-1 bg-neon/10 text-neon rounded-full text-sm">NodeJS</span>
+                    <span class="px-3 py-1 bg-neon/10 text-neon rounded-full text-sm">Python</span>
+                    <span class="px-3 py-1 bg-neon/10 text-neon rounded-full text-sm">AWS</span>
+                    <span class="px-3 py-1 bg-neon/10 text-neon rounded-full text-sm">S3</span>
+                    <span class="px-3 py-1 bg-neon/10 text-neon rounded-full text-sm">RDS</span>
+                </div>
+                <div class="flex justify-end">
+                    <a href="https://github.com/KevinPalaciosQ/SoundSemi" class="bg-neon/10 hover:bg-neon/20 text-neon border border-neon px-6 py-3 rounded shadow-lg shadow-neon/20 transition duration-300 hover:shadow-neon/40">View Source Code</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle menu for mobile devices
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Project preview functionality
+        const previewButtons = document.querySelectorAll('.preview-btn');
+        const closeButtons = document.querySelectorAll('.close-modal');
+        
+        // Open modal when preview button is clicked
+        previewButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const projectId = this.getAttribute('data-project');
+                const modal = document.getElementById(projectId + 'Modal');
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+            });
+        });
+        
+        // Close modal when close button is clicked
+        closeButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const projectId = this.getAttribute('data-project');
+                const modal = document.getElementById(projectId + 'Modal');
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Re-enable scrolling
+            });
+        });
+        
+        // Close modal when clicking outside of it
+        window.addEventListener('click', function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Re-enable scrolling
+            }
+        });
+
+        // Matrix effect for background
+        function createMatrixEffect() {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Don't actually add the canvas to the DOM to avoid performance issues
+            // This is just for the concept
+            
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            const characters = "01";
+            const fontSize = 10;
+            const columns = canvas.width / fontSize;
+            
+            const drops = [];
+            for (let i = 0; i < columns; i++) {
+                drops[i] = 1;
+            }
+            
+            function draw() {
+                ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                ctx.fillStyle = "#00ff41";
+                ctx.font = fontSize + "px monospace";
+                
+                for (let i = 0; i < drops.length; i++) {
+                    const text = characters.charAt(Math.floor(Math.random() * characters.length));
+                    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                    
+                    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                        drops[i] = 0;
+                    }
+                    
+                    drops[i]++;
+                }
+            }
+            
+            // Uncomment to actually run the matrix effect animation
+            // setInterval(draw, 33);
+        }
+        
+        // Initialize the matrix effect concept (not actually running for performance)
+        createMatrixEffect();
+        
+        // Typing effect for terminal text
+        function typeEffect(element, text, speed = 50) {
+            let i = 0;
+            element.innerHTML = '';
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            
+            type();
+        }
+        
+        // Apply typing effect to terminal elements
+        document.querySelectorAll('.terminal .cursor').forEach(el => {
+            const text = el.textContent;
+            typeEffect(el, text);
+        });
+    </script>
 </body>
-
 </html>
